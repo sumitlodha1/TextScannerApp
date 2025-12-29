@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="janna">#F4EDD3</color>
+    <color name="Ultrasonic">#A5BFCC</color>
+    <color name="gumbo">#7E99A3</color>
+    <color name="comfortGranite">#4C585B</color>
+
 </resources>
