@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -10,25 +10,32 @@
     tools:context=".MainActivity">
 
 
-
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="22dp"
+        app:layout_constraintBottom_toTopOf="@+id/materialToolbar2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="30dp"
-            android:textStyle="bold"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
-            android:layout_marginLeft="50dp"
-            android:text="Text Scanner"/>
+            android:gravity="center"
+            android:text="Text Scanner"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/outputText"
             android:layout_width="match_parent"
             android:layout_height="500dp"
             android:layout_marginLeft="20dp"
@@ -36,10 +43,10 @@
             android:layout_marginRight="20dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:paddingRight="5dp"
             android:paddingLeft="5dp"
+            android:paddingTop="15dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="15dp"
             android:scrollbars="vertical"
             android:text=""
             android:textAlignment="center"
@@ -47,10 +54,16 @@
     </FrameLayout>
 
     <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="110dp"
+        android:layout_below="@+id/frameLayout"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/border"
-        android:layout_marginTop="25dp">
+        android:padding="10dp"
+        bo
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,35 +71,35 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/btnCopy"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:id="@+id/btnCopy"
-                android:background="@android:color/transparent"
-                android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
-                android:src="@drawable/copy"/>
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/copy" />
 
             <ImageButton
+                android:id="@+id/btnCamera"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:id="@+id/btnCamera"
-                android:background="@android:color/transparent"
                 android:layout_gravity="center"
                 android:layout_marginLeft="45dp"
                 android:layout_marginRight="45dp"
-                android:src="@drawable/camera"/>
+                android:background="@android:color/transparent"
+                android:src="@drawable/camera" />
 
             <ImageButton
+                android:id="@+id/btnClear"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:id="@+id/btnClear"
-                android:background="@android:color/transparent"
                 android:layout_gravity="center"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/broom"/>
+                android:background="@android:color/transparent"
+                android:src="@drawable/broom" />
 
         </LinearLayout>
 
     </com.google.android.material.appbar.MaterialToolbar>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
