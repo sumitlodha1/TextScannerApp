@@ -3,6 +3,6 @@
     <solid android:color="@color/Ultrasonic"/>
     <stroke android:color="@color/black" android:width="1dp"/>
 
-    <corners android:radius="4dp"/>
+    <corners android:radius="25dp"/>
 
 </shape>
