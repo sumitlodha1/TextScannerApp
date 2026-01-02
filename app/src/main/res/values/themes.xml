@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.TextScanner" parent="Base.Theme.TextScanner" />
+
+    <style name="splashScreen" parent="Theme.AppCompat.Light">
+        <item name="android:windowSplashScreenBackground">#fef6ff</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.TextScanner</item>
+    </style>
 </resources>
