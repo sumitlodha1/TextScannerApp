@@ -46,6 +46,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             if (intent.resolveActivity(packageManager) != null){
                 startActivityForResult(intent, reqCode)
+            } else{
+                Toast.makeText(this, "Please Enable Camera Permissions", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -79,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         val image = InputImage.fromBitmap(bitmapImage, 0)
         val result = recognizer.process(image)
             .addOnSuccessListener { visionText ->
-                binding.outputText.setText(visionText.toString())
+                binding.outputText.setText(visionText.text)
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Somthing Went Wrong.....", Toast.LENGTH_SHORT).show()
