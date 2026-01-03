@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         val image = InputImage.fromBitmap(bitmapImage, 0)
         val result = recognizer.process(image)
             .addOnSuccessListener { visionText ->
-                binding.outputText.setText(visionText.text)
+                binding.outputText.setText(visionText.text.lowercase())
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Somthing Went Wrong.....", Toast.LENGTH_SHORT).show()
