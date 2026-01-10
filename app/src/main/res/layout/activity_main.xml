@@ -69,6 +69,7 @@
         android:background="@drawable/border"
         android:orientation="horizontal"
         android:padding="5dp"
+        android:gravity="center"
         android:layout_margin="10dp"
         tools:layout_editor_absoluteX="5dp"
         tools:layout_editor_absoluteY="625dp">
