@@ -5,14 +5,18 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
@@ -46,16 +50,23 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()){ isGranted ->
+            if (isGranted) {
+                launchCamera()
+            } else {
+                Toast.makeText(this, "Camera permission is required to scan text", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         binding.btnCamera.setOnClickListener {
-
-            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-
-            imageUri = createImageUri()
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
-            intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-
-            startActivityForResult(intent, reqCode)
+            when {
+                ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED -> {
+                    launchCamera()
+                }
+                else -> {
+                    requestPermissionLauncher.launch(android.Manifest.permission.CAMERA)
+                }
+            }
         }
 
         binding.btnCopy.setOnClickListener {
@@ -70,13 +81,30 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    private fun launchCamera() {
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        imageUri = createImageUri()
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
+        intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+        startActivityForResult(intent, reqCode)
+    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode==reqCode && resultCode == Activity.RESULT_OK){
-            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, imageUri)
-            imageProcessing(bitmap)
+        if (requestCode == reqCode && resultCode == Activity.RESULT_OK) {
+            try {
+                val bitmap = if (android.os.Build.VERSION.SDK_INT >= 28) {
+                    val source = ImageDecoder.createSource(contentResolver, imageUri)
+                    ImageDecoder.decodeBitmap(source)
+                } else {
+                    MediaStore.Images.Media.getBitmap(contentResolver, imageUri)
+                }
+                imageProcessing(bitmap)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(this, "Failed to load image", Toast.LENGTH_SHORT).show()
+            }
         }
 
     }
