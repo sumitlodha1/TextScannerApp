@@ -5,9 +5,7 @@ plugins {
 
 android {
     namespace = "com.itsxlord.textscanner"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.itsxlord.textscanner"
@@ -53,8 +51,11 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // To recognize Latin script
     implementation("com.google.mlkit:text-recognition:16.0.1")
+    
+    implementation(libs.mlkit.translate)
 
     implementation("androidx.core:core-splashscreen:1.0.0")
+
+    implementation(libs.android.image.cropper)
 }

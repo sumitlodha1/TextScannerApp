@@ -2,9 +2,21 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="janna">#F4EDD3</color>
-    <color name="Ultrasonic">#A5BFCC</color>
-    <color name="gumbo">#7E99A3</color>
-    <color name="comfortGranite">#4C585B</color>
 
+    <color name="color_slate">#666B80</color>
+    <color name="color_dusty_blue">#8493A8</color>
+    <color name="color_sage_teal">#9DB7B6</color>
+    <color name="color_pale_sage">#B9CBB5</color>
+    <color name="color_sand">#E9E1BD</color>
+    <color name="Ultrasonic">#6366f1</color>
+
+    <color name="appBackground">#F2EFE1</color> <!-- Lightened version of Sand -->
+    <color name="cardSurface">#FFFFFF</color>
+    <color name="textMain">#4A4D5C</color>      <!-- Darkened version of Slate -->
+    <color name="textHint">#8493A8</color>      <!-- Dusty Blue -->
+    
+    <color name="colorPrimary">#9DB7B6</color>  <!-- Sage Teal -->
+    <color name="buttonTonal">#D9E2D7</color>   <!-- Lightened Pale Sage -->
+    <color name="iconActive">#666B80</color>    <!-- Slate -->
+    <color name="borderColor">#B9CBB5</color>   <!-- Pale Sage -->
 </resources>
