@@ -1,20 +1,23 @@
-# TextScannerApp
+# 📄 TextScannerApp
 
-A modern Android text scanner app built with Kotlin that uses OCR (Optical Character Recognition) to extract text from images and documents. Users can capture images using the camera or select them from the gallery, scan text instantly, copy results, and share extracted content easily.
-
-GitHub Repository: [TextScannerApp](https://github.com/sumitlodha1/TextScannerApp)
+A powerful Android OCR application built with **Kotlin** that instantly extracts text from images using **Google ML Kit**. Capture via camera or import from gallery — then copy, translate, listen, save, or share the extracted text in seconds.
 
 ---
 
 ## ✨ Features
 
-- 📷 Scan text using the device camera
-- 🖼️ Import images from gallery
-- 🔍 OCR-based text extraction
-- 📋 Copy extracted text to clipboard
-- 📤 Share scanned text instantly
-- ⚡ Fast and lightweight UI
-- 🎨 Clean Material Design interface
+| Feature | Description |
+|---|---|
+| 📷 Camera Scan | Capture images directly using the device camera |
+| 🖼️ Gallery Import | Select existing images from your gallery |
+| 🔍 OCR Text Extraction | High-accuracy text recognition for printed & handwritten content |
+| 📋 Copy to Clipboard | Instantly copy extracted text with one tap |
+| 🌐 Real-time Translation | Translate scanned text into multiple languages |
+| 🔊 Text to Speech | Listen to extracted text read aloud |
+| 💾 Save Text | Save scanned results for later reference |
+| 📤 Share Text | Share extracted content via any app instantly |
+| ⚡ Fast & Lightweight | Optimised for performance across all Android devices |
+| 🎨 Material Design UI | Clean, intuitive interface following Material Design guidelines |
 
 ---
 
@@ -23,38 +26,40 @@ GitHub Repository: [TextScannerApp](https://github.com/sumitlodha1/TextScannerAp
 - **Language:** Kotlin
 - **Platform:** Android
 - **IDE:** Android Studio
-- **OCR:** ML Kit / Text Recognition APIs
-- **UI:** XML + Android Views
-
----
-
-## 📱 Screenshots
-
-_Add your screenshots here_
-
-```md
-![Home Screen](screenshots/home.png)
-![Scanner Screen](screenshots/scanner.png)
-![Result Screen](screenshots/result.png)
-```
+- **OCR Engine:** Google ML Kit (Text Recognition API) — on-device, no internet required
+- **UI:** XML Layouts + Material Design Components
 
 ---
 
 ## 📂 Project Structure
 
-```bash
+```
 TextScannerApp/
 │
 ├── app/
 │   ├── src/
 │   │   ├── main/
-│   │   │   ├── java/
-│   │   │   ├── res/
+│   │   │   ├── java/         # Kotlin source files
+│   │   │   ├── res/          # Layouts, drawables, strings
 │   │   │   └── AndroidManifest.xml
 │
 ├── gradle/
-├── build.gradle
+├── build.gradle.kts
 └── README.md
+```
+
+---
+
+## 💡 How It Works
+
+```
+1. User captures or selects an image
+        ↓
+2. Image is passed to Google ML Kit's OCR engine
+        ↓
+3. Text is extracted on-device (no internet needed)
+        ↓
+4. User can Copy / Translate / Listen / Save / Share the result
 ```
 
 ---
@@ -68,58 +73,49 @@ TextScannerApp/
 
 ---
 
-## 💡 How It Works
+## 🚀 Getting Started
 
-1. User selects or captures an image
-2. Image is processed using OCR
-3. Text is extracted from the image
-4. Extracted text is displayed for copying or sharing
+### Prerequisites
+- Android Studio (latest version recommended)
+- Android device or emulator running **API 21+**
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/sumitlodha1/TextScannerApp.git
+
+# 2. Open in Android Studio
+File → Open → Select the cloned folder
+
+# 3. Let Gradle sync, then run on device or emulator
+```
 
 ---
 
-## 📦 Future Improvements
+## 📦 Planned Improvements
 
-- 🌐 Multi-language OCR support
-- 📄 Export scanned text as PDF
-- ☁️ Cloud backup support
-- 🧠 AI-powered text formatting
-- 🔊 Text-to-speech support
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the repository
-2. Create a feature branch
-
-```bash
-git checkout -b feature-name
-```
-
-3. Commit your changes
-
-```bash
-git commit -m "Added new feature"
-```
-
-4. Push to your branch
-
-```bash
-git push origin feature-name
-```
-
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
+- [ ] Export scanned text as PDF
+- [ ] Scan history with search
+- [ ] Dark mode support
+- [ ] Multi-page document scanning
+- [ ] Cloud backup integration
 
 ---
 
 ## 👨‍💻 Developer
 
-Made with ❤️ by **Sumit Lodha**
+**Sumit Lodha**
+- 🔗 GitHub: [@sumitlodha1](https://github.com/sumitlodha1)
+- 💼 LinkedIn: [sumitlodha1](https://www.linkedin.com/in/sumitlodha1/)
+- 🧠 LeetCode: [sumitlodha1](https://leetcode.com/u/sumitlodha1/)
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — feel free to use, modify, and distribute.
+
+---
+
+> Built with ❤️ using Kotlin & Google ML Kit
