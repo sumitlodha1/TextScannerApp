@@ -112,10 +112,4 @@ File → Open → Select the cloned folder
 
 ---
 
-## 📄 License
-
-This project is licensed under the **MIT License** — feel free to use, modify, and distribute.
-
----
-
 > Built with ❤️ using Kotlin & Google ML Kit
